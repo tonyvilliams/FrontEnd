@@ -25,22 +25,21 @@ function showSuccess(input) {
   formControl.className = 'form-control success';
 }
 
+// Check required
+function checkRequired(inputArr) {
+  inputArr.forEach(function (input) {
+    console.log(input.value);
+    if (input.value.trim() === '') {
+      showError(input, 'is required');
+    } else {
+      showSuccess(input);
+    }
+  });
+}
+
 // Event Listeners
 form.addEventListener('submit', function (e) {
   e.preventDefault();
 
-  if (username.value === '') {
-    showError(username, 'Username is required');
-  } else {
-    showSuccess(username);
-  }
-  if (email.value === '') {
-    showError(email, 'Email is required');
-  } else if (!isValidEmail(email.value)) {
-    showError(email, 'Email is valid');
-  } else {
-    showSuccess(username);
-  }
-
-  // console.log(username.value);
+  checkRequired([username, email, password, password2]);
 });
