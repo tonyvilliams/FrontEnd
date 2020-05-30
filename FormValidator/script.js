@@ -25,7 +25,7 @@ function checkEmail(input) {
 
 // Show success message
 function showSuccess(input) {
-  console.log('input');
+  // console.log('input');
   const formControl = input.parentElement;
   formControl.className = 'form-control success';
 }
@@ -56,6 +56,13 @@ function checkLength(input, min, max) {
   }
 }
 
+// check password match
+function checkPasswordsMatch(input1, input2) {
+  if (input1.value !== input2.value) {
+    showError(input2, 'Password do not match');
+  }
+}
+
 // Get feildname
 function getFeildName(input) {
   return input.id.charAt(0).toUpperCase() + input.id.slice(1);
@@ -69,4 +76,5 @@ form.addEventListener('submit', function (e) {
   checkLength(username, 3, 15);
   checkLength(password, 6, 25);
   checkEmail(email);
+  checkPasswordsMatch(password, password2);
 });
