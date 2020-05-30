@@ -30,7 +30,7 @@ function checkRequired(inputArr) {
   inputArr.forEach(function (input) {
     console.log(input.value);
     if (input.value.trim() === '') {
-      showError(input, 'is required');
+      showError(input, `${input.id} is required`);
     } else {
       showSuccess(input);
     }
