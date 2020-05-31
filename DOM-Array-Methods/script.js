@@ -39,7 +39,7 @@ function updateDOM(providedData = data) {
   // Clear main div
   main.innerHTML = '<h2><strong>Person</strong>Wealth</h2>';
 
-  providedData.forEach(function (item) {
+  providedData.forEach((item) => {
     console.log(item);
   });
 }
